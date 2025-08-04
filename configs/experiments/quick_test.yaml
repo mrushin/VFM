@@ -1,0 +1,22 @@
+# @package _global_
+defaults:
+  - /default
+  - _self_
+
+# Quick Test - Minimal config for debugging
+model:
+  embed_dim: 128
+  depth: 2
+  num_heads: 2
+  img_size: 64
+
+data:
+  batch_size: 2
+  num_samples: 20
+
+training:
+  max_epochs: 1
+  learning_rate: 1e-3
+
+logging:
+  name: "quick-test"

@@ -1,0 +1,59 @@
+# VFM Default Configuration
+# Optimized for Windows development environment
+
+model:
+  name: "UnifiedVisionFM"
+  domains: ["land", "air", "sea"]
+  modalities: ["optical", "radar", "infrared"]
+  embed_dim: 384  # Start smaller for development
+  depth: 6
+  num_heads: 6
+  patch_size: 16
+  img_size: 224
+  dropout: 0.1
+  use_cross_domain_fusion: true
+
+data:
+  batch_size: 4  # Small for development
+  num_workers: 0  # Windows compatibility
+  pin_memory: false  # Windows compatibility
+  synthetic: true  # Use synthetic data for MVP
+  img_size: 224
+  domains: ["land", "air", "sea"]
+  num_samples: 1000
+
+training:
+  max_epochs: 10
+  learning_rate: 1e-4
+  weight_decay: 0.01
+  warmup_epochs: 2
+  scheduler: "cosine"
+  gradient_clip_val: 1.0
+  accumulate_grad_batches: 2
+
+evaluation:
+  metrics: ["accuracy", "f1_score", "precision", "recall"]
+  save_predictions: true
+  compute_confusion_matrix: true
+
+logging:
+  project: "vfm-development"
+  entity: "michael-rushin"
+  name: "vfm-experiment"
+  log_every_n_steps: 10
+  save_top_k: 3
+  monitor: "val_accuracy"
+  mode: "max"
+
+hardware:
+  accelerator: "auto"
+  devices: 1
+  precision: 16  # Mixed precision for speed
+  deterministic: false
+
+paths:
+  data_dir: "data"
+  output_dir: "outputs"
+  model_dir: "models"
+  checkpoint_dir: "models/checkpoints"
+  log_dir: "outputs/logs"

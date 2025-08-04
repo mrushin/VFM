@@ -1,0 +1,76 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch model files
+*.pth
+*.pt
+*.ckpt
+
+# Data directories
+data/raw/*
+data/processed/*
+data/external/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# Model artifacts
+models/checkpoints/*
+models/pretrained/*
+models/exports/*
+!models/checkpoints/.gitkeep
+!models/pretrained/.gitkeep
+!models/exports/.gitkeep
+
+# Output directories
+outputs/logs/*
+outputs/runs/*
+outputs/results/*
+!outputs/logs/.gitkeep
+!outputs/runs/.gitkeep
+!outputs/results/.gitkeep
+
+# Environment and IDE
+.env
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific
+Thumbs.db
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints
+
+# Weights & Biases
+wandb/
+
+# Coverage reports
+htmlcov/
+.coverage
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
